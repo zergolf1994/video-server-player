@@ -53,3 +53,17 @@ exports.deleteCache = (videoSlug) => {
     return { error: true };
   }
 };
+
+exports.savePoster = (name, data) => {
+  try {
+    const _dir = path.join(global.dirPublic, "thumb"),
+      _file = path.join(_dir, name);
+
+    if (!fs.existsSync(_dir)) {
+      fs.mkdirSync(_dir, { recursive: true });
+    }
+    fs.writeFileSync(_file, data, "utf8");
+  } catch (error) {
+    return { error: true };
+  }
+};

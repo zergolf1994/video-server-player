@@ -2,6 +2,7 @@ const { FileModel } = require("../models/file.models");
 
 exports.getSource = async (req, res) => {
   try {
+    const host = req.get("host");
     const { slug } = req.params;
     const files = await FileModel.aggregate([
       { $match: { slug } },
@@ -39,31 +40,7 @@ exports.getSource = async (req, res) => {
             },
             {
               $set: {
-                file: {
-                  $cond: {
-                    if: {
-                      $eq: ["$$ROOT.quality", "original"],
-                    },
-                    then: {
-                      $concat: [
-                        "http://",
-                        "$server.sv_ip",
-                        "/",
-                        "$$ROOT.file_name",
-                      ],
-                    },
-                    else: {
-                      $concat: [
-                        "http://",
-                        "$server.sv_ip",
-                        ":8889/mp4/",
-                        "$$ROOT.fileId",
-                        "/",
-                        "$$ROOT.file_name",
-                      ],
-                    },
-                  },
-                },
+                file: { $concat: ["//", host, "/", "$$ROOT.slug", ".mp4"] },
                 default: {
                   $cond: {
                     if: {
