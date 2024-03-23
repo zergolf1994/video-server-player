@@ -30,6 +30,7 @@ router.get("/v/:slug", async (req, res) => {
   return res.render("v", data);
 });
 
+router.use("/server", require("./server.routes"));
 router.all("*", async (req, res) => {
   const html = `
   <html>
