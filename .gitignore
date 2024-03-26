@@ -43,6 +43,7 @@ node_modules/
 jspm_packages/
 .cached/
 .cached
+public/thumb
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
