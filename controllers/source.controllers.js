@@ -145,7 +145,6 @@ exports.getSourceM3U8 = async (req, res) => {
           _id: 0,
           title: 1,
           sources: 1,
-          playbackRateControls: [2.0, 1.75, 1.0, 0.75, 0.5],
         },
       },
     ]);
@@ -154,15 +153,12 @@ exports.getSourceM3U8 = async (req, res) => {
     const file = files[0];
 
     let data = {
-      key: "W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99",
-      width: "100%",
-      height: "100%",
-      preload: "metadata",
-      primary: "html5",
-      hlshtml: "true",
-      controls: "true",
-      pipIcon: "disabled", //enabled
+      title: file.title,
       sources: file.sources,
+      image: `../thumb/${slug}-5.jpg`,
+      /*image: `../thumb/${slug}-${
+        Math.floor(Math.random() * 10) + 1
+      }.jpg`,*/
     };
 
     return res.json(data);

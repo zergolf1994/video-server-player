@@ -1,13 +1,13 @@
 const request = require("request");
 const mime = require("mime-types");
 const { MediaModel } = require("../models/media.models");
-const { saveCache, getCache } = require("../utils/cache.utils");
+const { Cached } = require("../utils/cache.utils");
 
 exports.getStream = async (req, res) => {
   try {
     const { slug, item, ext } = req.params;
 
-    let media = await getCache(slug);
+    let media = await Cached.stream.get(`${slug}.json`);
 
     if (!media.file) {
       const medias = await MediaModel.aggregate([
@@ -58,7 +58,8 @@ exports.getStream = async (req, res) => {
 
       if (!medias?.length) throw new Error("This video doesn't exist");
       media = medias[0];
-      saveCache(slug, media);
+
+      await Cached.stream.save(`${slug}.json`, media);
     }
     const url = `${media.file}/seg-${item}-v1-a1.ts`;
 

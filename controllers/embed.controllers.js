@@ -1,4 +1,5 @@
 const { FileModel } = require("../models/file.models");
+const { PlayerModel } = require("../models/player.models");
 
 exports.getEmbed = async (req, res) => {
   let data = {
@@ -9,8 +10,28 @@ exports.getEmbed = async (req, res) => {
   };
 
   try {
+    //const host = req.get("host") == "localhost" ? "ggcdn.xyz" : req.get("host");
+    const player = await PlayerModel.findOne({ domain: data.host }).select(
+      "enable player_options.block_direct"
+    );
+
+    if (!player || !player.enable) {
+      const error = new Error("Not found.");
+      error.code = 404;
+      throw error;
+    }
+    if (player.player_options.block_direct) {
+      const secFetchDest = req.get("Sec-Fetch-Dest");
+      if (secFetchDest !== "iframe") {
+        const error = new Error("Forbidden.");
+        error.code = 404;
+        throw error;
+      }
+    }
+
     const { slug } = req.params;
     data.slug = slug;
+
     const files = await FileModel.aggregate([
       { $match: { slug } },
       { $limit: 1 },
@@ -90,7 +111,11 @@ exports.getEmbed = async (req, res) => {
       },
     ]);
 
-    if (!files?.length) throw new Error("This video doesn't exist");
+    if (!files?.length) {
+      const error = new Error("This video doesn't exist.");
+      error.code = 404;
+      throw error;
+    }
     const file = files[0];
 
     data.title = file.title;
@@ -104,6 +129,6 @@ exports.getEmbed = async (req, res) => {
   } catch (err) {
     data.title = err?.message;
     data.msg = err?.message;
-    return res.render("error", data);
+    return res.status(err?.code || 500).render("error", data);
   }
 };

@@ -2,15 +2,40 @@ class Load {
   async init() {
     const load = document.getElementById("load");
     this.slug = load.getAttribute("slug");
-    this.data = await this.getSource();
+    this.set = await this.getSetting();
 
-    if (this.data?.error) {
-      console.log(this.data.msg);
+    if (this.set?.error) {
       return;
-    } else {
-      this.player = jwplayer("player");
-      this.setupPlayer();
     }
+
+    if (this.set.setting.block_devtools) {
+      this._devtools();
+    }
+    await this._jwpcdn();
+
+    this.source = await this.getSource();
+    if (this.source?.error) {
+      return;
+    }
+    if (this.set.jwplayer.title == true) {
+      this.set.jwplayer.title = this.source.title;
+    }
+    delete this.source.title;
+    this.player = jwplayer("player");
+    this.setupPlayer2({
+      skin_name: this.set.jwplayer?.skin?.name || "netflix",
+    });
+  }
+  async getSetting() {
+    const rawResponse = await fetch(`../set`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+
+    return await rawResponse.json();
   }
   async getSource() {
     const rawResponse = await fetch(`../h/${this.slug}`, {
@@ -23,7 +48,8 @@ class Load {
 
     return await rawResponse.json();
   }
-  setupPlayer() {
+  setupPlayer(options = { skin_name: "custom" }) {
+    this._skin("custom");
     let slug = this.slug,
       player = this.player.setup({
         ...this.data,
@@ -150,6 +176,61 @@ class Load {
     player.on("visualQuality", function (e) {
       clientSide.qualitySwitch(e.level.index);
     });
+  }
+  async setupPlayer2(options = { skin_name: "custom" }) {
+    await this._skin(options.skin_name);
+
+    let slug = this.slug,
+      player = this.player.setup({
+        ...this.set.jwplayer,
+        ...this.source,
+      });
+
+    player.on("ready", function (event) {
+    });
+  }
+
+  async _jwpcdn() {
+    //script
+    let script = document.createElement("script");
+    script.src = `//ssl.p.jwpcdn.com/player/v/${this.set.setting.jw_version}/jwplayer.js`;
+    script.type = "text/javascript";
+    script.async = true;
+    script.defer = true;
+    document.getElementsByTagName("head")[0].appendChild(script);
+    script.onload = function () {
+      return true;
+    };
+  }
+
+  async _skin(name) {
+    //script
+    let link = document.createElement("link");
+    link.href = `../assets/skin/${name || "custom"}.css`;
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    document.getElementsByTagName("head")[0].appendChild(link);
+    link.onload = function () {
+      return true;
+    };
+  }
+  _devtools() {
+    (function () {
+      (function a() {
+        try {
+          (function b(i) {
+            if (("" + i / i).length !== 1 || i % 20 === 0) {
+              (function () {}).constructor("debugger")();
+            } else {
+              debugger;
+            }
+            b(++i);
+          })(0);
+        } catch (e) {
+          setTimeout(a, 500);
+        }
+      })();
+    })();
   }
 }
 

@@ -13,14 +13,16 @@ const {
   getStreamMp4,
 } = require("../controllers/stream.controllers");
 const { getPoster } = require("../controllers/poster.controllers");
+const { getPlayerSetting } = require("../controllers/player.controllers");
 
 router.all("/", async (req, res) => {
   return res.render("index", {});
 });
 //embed
-router.get("/embed/:slug", isIframe, getEmbed);
+router.get("/embed/:slug", getEmbed);
 router.get("/d/:slug", isReferrer, getSource);
 router.get("/h/:slug", isReferrer, getSourceM3U8);
+router.get("/set", getPlayerSetting);
 
 router.get("/master/:slug", isReferrer, getMaster);
 router.get("/index/:slug", isReferrer, getIndex);
@@ -33,6 +35,10 @@ router.get("/v/:slug", async (req, res) => {
   const data = { slug };
 
   return res.render("v", data);
+});
+
+router.get("/test", async (req, res) => {
+  return res.render("test", {});
 });
 
 router.use("/server", require("./server.routes"));

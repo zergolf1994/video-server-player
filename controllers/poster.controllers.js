@@ -1,7 +1,7 @@
 const request = require("request");
 const mime = require("mime-types");
 const { FileModel } = require("../models/file.models");
-const { savePoster } = require("../utils/cache.utils");
+const { Cached } = require("../utils/cache.utils");
 
 exports.getPoster = async (req, res) => {
   try {
@@ -99,12 +99,11 @@ exports.getPoster = async (req, res) => {
       .on("end", async function () {
         if (res?.statusCode == 200) {
           let data = Buffer.concat(buffers);
-          savePoster(`${slug}-${item}.${ext}`, data);
+          Cached.poster.save(`${slug}-${item}.${ext}`,data);
         }
       })
       .pipe(res);
   } catch (err) {
-    console.log(err);
     return res.status(404).end();
   }
 };

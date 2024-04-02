@@ -1,0 +1,379 @@
+@font-face {
+    font-family: starwars;
+    src: url(sw/starwars.eot?) format("eot"), url(sw/starwars.woff) format("woff"), url(sw/starwars.ttf) format("truetype"), url(sw/starwars.svg#starwars) format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: what;
+    font-weight: 400;
+    font-display: swap;
+    src: url(sw/what.woff2) format('woff2'), url(sw/what.woff) format('woff')
+}
+
+@font-face {
+    font-family: bang;
+    font-display: swap;
+    src: url(e39eeb1948adcac16fee315934ed188a.eot);
+    src: url(e39eeb1948adcac16fee315934ed188a.eot?#iefix) format("embedded-opentype"), url(e39eeb1948adcac16fee315934ed188a.woff2) format("woff2"), url(e39eeb1948adcac16fee315934ed188a.woff) format("woff"), url(e39eeb1948adcac16fee315934ed188a.ttf) format("truetype"), url("e39eeb1948adcac16fee315934ed188a.svg#Bang Bang") format("svg")
+}
+
+#emplayer .jw-rightclick {
+    display: none;
+    visibility: hidden
+}
+
+#emplayer .jw-rightclick.jw-open {
+    display: none;
+    visibility: hidden
+}
+
+#emplayer .jw-rightclick.jw-open {
+    display: none
+}
+
+.jwplayer.jw-breakpoint-7 .jw-controlbar .jw-button-container {}
+
+.jwplayer.jw-breakpoint-7 .jw-controlbar .jw-slider-time {}
+
+.jwplayer.jw-state-idle .jw-display {
+    height: 100%
+}
+
+.jwplayer.jw-state-idle.jw-breakpoint-3 .jw-display,
+.jwplayer.jw-state-idle.jw-breakpoint-2 .jw-display,
+.jwplayer.jw-state-idle.jw-breakpoint-1 .jw-display {
+    height: 100%
+}
+
+.jwplayer .jw-controls {
+    border: 0;
+    outline: 0
+}
+
+.jwplayer * {
+    outline: 0
+}
+
+.jw-breakpoint-7 .jw-settings-menu {}
+
+.jw-breakpoint-7 .jw-controlbar {}
+
+.jw-breakpoint-7 .jw-controlbar .jw-slider-time {}
+
+.jwplayer.jw-state-idle .jw-display-controls .jw-display-icon-container {
+    border-radius: 50%
+}
+
+.jwplayer.jw-breakpoint-7 .jw-button-container .jw-related-shelf-container {
+    padding: 0 40px
+}
+
+.jwplayer.jw-breakpoint-7 .jw-related-shelf-container .jw-related-close {
+    margin-right: 40px
+}
+
+#emplayer .jw-buffer {
+    background-color: rgba(154, 154, 154, .5) !important
+}
+
+.jw-slider-time:hover .jw-knob,
+.jw-horizontal-volume-container:hover .jw-knob,
+.jw-slider-time:focus .jw-knob,
+.jw-horizontal-volume-container:focus .jw-knob {
+    background-color: #fff !important
+}
+
+.jwplayer.jw-state-paused .jw-controls {}
+
+.jw-svg-icon-arrow-down path {
+    display: none
+}
+
+.jw-svg-icon-arrow-down {
+    background-image: url(/wp-content/themes/vidyomax/css/kapat.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.jw-svg-icon-more-videos path {
+    display: none
+}
+
+.jw-svg-icon-more-videos {
+    background-image: url(/wp-content/themes/vidyomax/css/listass.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.jw-svg-icon-fullscreen-on path {
+    display: none
+}
+
+.jw-svg-icon-fullscreen-on {
+    background-image: url(/wp-content/themes/vidyomax/css/f111.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.jw-svg-icon-fullscreen-off path {
+    display: none
+}
+
+.jw-svg-icon-fullscreen-off {
+    background-image: url(/wp-content/themes/vidyomax/css/f222.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+#emplayer .jw-error .jw-preview,
+#emplayer.jwplayer.jw-state-error .jw-preview {
+    background-color: #000
+}
+
+#emplayer .jw-preview {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover
+}
+
+.jwplayer .jw-display-controls .jw-display-icon-display.shift .jw-button-color .jw-svg-icon.jw-svg-icon-play {
+    background-image: url(/wp-content/themes/vidyomax/css/play.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.jwplayer .jw-controlbar .jw-overlay .jw-time-tip .jw-time-thumb {
+    transition: background .15s ease-in-out
+}
+
+#emplayer .jw-slider-volume.jw-slider-horizontal .jw-progress,
+#emplayer .jw-slider-volume.jw-slider-horizontal .jw-knob {
+    background-color: #fff
+}
+
+.jwplayer .jw-display-controls .jw-display-icon-display .jw-button-color .jw-svg-icon.jw-svg-icon-play path {
+    display: none
+}
+
+.jwplayer .jw-display-controls .jw-display-icon-display .jw-button-color .jw-svg-icon.jw-svg-icon-play {
+    background-image: url(/wp-content/themes/vidyomax/css/play.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.jwplayer .jw-display-controls .jw-display-icon-display.shift .jw-button-color .jw-svg-icon.jw-svg-icon-play path {
+    display: none
+}
+
+.jwplayer .jw-display-controls .jw-display-icon-display.shift .jw-button-color .jw-svg-icon.jw-svg-icon-play {
+    background-image: url(/wp-content/themes/vidyomax/css/play.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.jwplayer .jw-svg-icon-arrow-down path,
+.jw-svg-icon-more-videos path,
+.jw-svg-icon-fullscreen-on path,
+.jw-svg-icon-fullscreen-off path,
+.jw-svg-icon-cc-off path,
+.jw-svg-icon-cc-on path,
+.jw-svg-icon-audio-tracks path,
+.jw-svg-icon-pip-off path,
+.jw-svg-icon-pip-on path {
+    display: none
+}
+
+.jwplayer .jw-svg-icon-fullscreen-on {
+    background-image: url(/p/svg/f111.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.jwplayer .jw-svg-icon-fullscreen-off {
+    background-image: url(/p/svg/f222.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.jwplayer .jw-svg-icon-cc-off {
+    background-image: url(/p/svg/c-off.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.jwplayer .jw-svg-icon-audio-tracks {
+    background-image: url(/p/svg/aud.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.jwplayer .jw-svg-icon-cc-on {
+    background-image: url(/p/svg/c-on.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.jwplayer .jw-svg-icon-pip-on {
+    background-image: url(/p/svg/pip-on.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.jwplayer .jw-svg-icon-pip-off {
+    background-image: url(/p/svg/pip-off.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat
+}
+
+.jwplayer .captionStyle {
+    font-style: italic;
+    font-weight: 300;
+    background: radial-gradient(circle at 10%, rgb(0 100 159/69%) 0%, rgb(219 10 10/80%) 140%);
+    color: rgb(255 255 255/90%)
+}
+
+.jwplayer .captionStyle::before,
+.jwplayer .captionStyle::after {
+    content: ' โช ';
+    color: #000
+}
+
+.jwplayer .backed {
+    background: #aa076b;
+    background: -webkit-linear-gradient(to right, #61045F, #AA076B);
+    background: linear-gradient(to right, #61045F, #AA076B);
+    font-weight: 300;
+    color: rgb(255 255 255/90%)
+}
+
+.jwplayer .backed {
+    background: #aa076b;
+    background: -webkit-linear-gradient(to right, #61045F, #AA076B);
+    background: linear-gradient(to right, #61045F, #AA076B);
+    font-weight: 300;
+    color: rgb(255 255 255/90%)
+}
+
+.jwplayer .captionTitle {
+    font-size: 100%;
+    font-style: normal;
+    font-weight: 900;
+    color: red
+}
+
+.jwplayer .captionTitle.Green {
+    font-size: 100%;
+    font-style: normal;
+    font-weight: 900;
+    color: #149414
+}
+
+.jwplayer .captionAltTitle {
+    font-size: 100%;
+    font-style: normal;
+    font-weight: 900;
+    color: #e1e1e1
+}
+
+.jwplayer .captionTitleBlue {
+    font-size: 100%;
+    font-style: normal;
+    font-weight: 900;
+    color: #3761a3
+}
+
+.jwplayer .captionTitleBlue.Big {
+    font-size: 200%;
+    font-style: normal;
+    font-weight: 900;
+    color: #3761a3
+}
+
+.jwplayer .captionStarWars {
+    font-family: starwars;
+    font-size: 100%;
+    font-style: normal;
+    font-weight: 900;
+    color: #fff
+}
+
+.jwplayer .custom {
+    font-size: 150%;
+    font-weight: 400;
+    line-height: 80%;
+    font-family: what
+}
+
+.jwplayer .bang {
+    font-size: 150%;
+    font-style: normal;
+    font-weight: 900;
+    text-shadow: 2px 2px 2px #000;
+    font-family: bang;
+    color: rgb(255 0 0)
+}
+
+.jwplayer .custom.white {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000
+}
+
+.jwplayer .custom.black {
+    color: #000
+}
+
+.jwplayer .custom.red {
+    color: red
+}
+
+.jwplayer .custom.green {
+    color: #149414
+}
+
+.jwplayer .custom.yellow {
+    color: #ff0
+}
+
+.jwplayer .custom.purple {
+    color: indigo
+}
+
+.jwplayer .custom.if {
+    color: rgb(255 255 255);
+    text-shadow: 2px 2px 4px #870000, 1px -1px 1px red, -1px -1px 1px red, -1px 1px 1px #e10303;
+    border: 6px solid rgb(255 255 255);
+    padding: 0 10px;
+    box-shadow: rgb(205 0 0) -2px 0 1px, rgb(255 0 0) 2px 0 1px, rgb(255 0 0) 0 -2px 1px, rgb(255 0 0) 0 2px 1px, rgb(255 0 0) -1px 1px 1px, rgb(255 0 0) 1px 1px 1px, rgb(255 0 0) 1px -1px 1px, rgb(255 0 0) 1px 1px 1px
+}
+
+.jwplayer .custom.big {
+    font-size: 130%
+}
+
+.jwplayer .custom.small {
+    font-size: 70%
+}
+
+.jwplayer .jw-captions .jw-text-track-cue {
+    text-shadow: 2px 2px 4px rgb(0 0 0/90%)
+}
+
+.jwplayer .jw-logo.jw-logo-top-right {
+    display: none !important
+}
